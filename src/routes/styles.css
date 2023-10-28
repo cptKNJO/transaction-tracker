@@ -1,15 +1,2 @@
 @import '@fontsource/fira-mono';
 
-/* the props */
-@import 'open-props/postcss/style';
-
-/* optional imports that use the props */
-@import 'open-props/postcss/normalize';
-@import 'open-props/postcss/buttons';
-
-/* individual imports */
-@import 'open-props/postcss/indigo';
-@import 'open-props/postcss/easings';
-@import 'open-props/postcss/animations';
-@import 'open-props/postcss/sizes';
-@import 'open-props/postcss/gradients';

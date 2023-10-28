@@ -1,10 +1,11 @@
 import autoprefixer from 'autoprefixer';
+import postcssImport from 'postcss-import';
 import postcssJitProps from 'postcss-jit-props';
 import OpenProps from 'open-props';
 
 /** @type {import('postcss-load-config').Config} */
 const config = {
-	plugins: [autoprefixer, postcssJitProps(OpenProps)]
+	plugins: [postcssImport, autoprefixer, postcssJitProps(OpenProps)]
 };
 
-module.exports = config;
+export default config;
