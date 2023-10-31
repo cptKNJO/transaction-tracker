@@ -1,4 +1,5 @@
-@import '@fontsource/fira-mono';
+@import '@fontsource/atkinson-hyperlegible/400.css';
+@import '@fontsource/atkinson-hyperlegible/700.css';
 
 /* the props */
 @import 'open-props/postcss/style';
@@ -6,3 +7,49 @@
 /* optional imports that use the props */
 @import 'open-props/postcss/normalize';
 @import 'open-props/postcss/buttons';
+
+:root {
+	--font-sans: Atkinson Hyperlegible, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+		Noto Sans, sans-serif;
+
+	--link: var(--jungle-8);
+	--link-visited: var(--blue-10);
+	--text-1: var(--gray-12);
+	--text-2: var(--gray-7);
+	--surface-1: var(--blue-0);
+	--surface-2: var(--gray-2);
+	--surface-3: var(--gray-3);
+	--surface-4: var(--gray-4);
+	--scrollthumb-color: var(--gray-7);
+}
+
+/* Base */
+body {
+	font-family: var(--font-sans);
+}
+
+h1 {
+	font-size: var(--font-size-fluid-2);
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+table td {
+	background-color: white;
+}
+
+tbody tr td {
+	border-bottom: 1px solid var(--gray-4);
+}
+
+/* Components */
+.button--primary {
+	--_bg: linear-gradient(var(--jungle-9), var(--jungle-10));
+	--_border: var(--jungle-9);
+	--_text: white;
+	--_ink-shadow: 0 1px 0 var(--jungle-9);
+}

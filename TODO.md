@@ -1,0 +1,6 @@
+- [x] Add single line entry
+- [ ] Add entries where the first line is a date
+  - if line doesn't start with + or - and has length after trimming for whitespace
+- [ ] Export as CSV
+- [ ] Make a PWA
+- [ ] Save to local storage

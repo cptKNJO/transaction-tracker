@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fontsource/atkinson-hyperlegible': ^5.0.17
   '@fontsource/fira-mono': ^4.5.10
   '@iconify-json/ph': ^1.1.6
   '@neoconfetti/svelte': ^1.0.0
@@ -12,6 +13,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^6.0.0
   '@typescript-eslint/parser': ^6.0.0
   autoprefixer: ^10.4.14
+  chrono-node: ^2.7.0
   eslint: ^8.28.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte: ^2.30.0
@@ -30,6 +32,10 @@ specifiers:
   unplugin-icons: ^0.17.1
   vite: ^4.4.2
   vitest: ^0.32.2
+
+dependencies:
+  '@fontsource/atkinson-hyperlegible': 5.0.17
+  chrono-node: 2.7.0
 
 devDependencies:
   '@fontsource/fira-mono': 4.5.10
@@ -327,6 +333,10 @@ packages:
     resolution: {integrity: sha512-JUFJad5lv7jxj926GPgymrWQxxjPYuJNiNjNMzqT+HiuP6Vl3dk5xzG+8sTX96np0ZAluvaMzPsjhHZ5rNuNQQ==}
     engines: {node: '>=14'}
     dev: true
+
+  /@fontsource/atkinson-hyperlegible/5.0.17:
+    resolution: {integrity: sha512-Evhr7GER/hFVxYj93msIC/BxEDpIMU27C42alWeILCyWsQEu3AWKLxQY/IVZyLrpgVT1ktWAXnH52WS1NarPPg==}
+    dev: false
 
   /@fontsource/fira-mono/4.5.10:
     resolution: {integrity: sha512-bxUnRP8xptGRo8YXeY073DSpfK74XpSb0ZyRNpHV9WvLnJ7TwPOjZll8hTMin7zLC6iOp59pDZ8EQDj1gzgAQQ==}
@@ -931,6 +941,13 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /chrono-node/2.7.0:
+    resolution: {integrity: sha512-0s2vv89LmsbgoibV0AIVgNnGqlU8N5yCCVZXvc3mRCjnmlG/gJw1hCYOmNwjB+AIuwZQdKTXfwvsHDRTs6pwcg==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      dayjs: 1.11.10
+    dev: false
+
   /code-red/1.0.4:
     resolution: {integrity: sha512-7qJWqItLA8/VPVlKJlFXU+NBlo/qyfs39aJcuMT/2ere32ZqvF5OSxgdM5xOfJJ7O429gg2HM47y8v9P+9wrNw==}
     dependencies:
@@ -983,6 +1000,10 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
     dev: true
+
+  /dayjs/1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: false
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
