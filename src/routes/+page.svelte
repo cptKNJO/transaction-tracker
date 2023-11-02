@@ -3,21 +3,26 @@
 
 	import TransactionForm from '$lib/components/TransactionForm.svelte';
 	import { formatDate } from '$lib/utils/formatter';
+	import { localStore } from '$lib/stores/localStorage';
+
+	const entries = localStore('transactions', []);
 
 	// Parse entry from newTransactionValue
 	function getParsedEntry(transaction: string) {
 		const cleanString = transaction.trim();
 
-		const parsedTime = chrono.parse(cleanString);
+		const parsedTime = chrono.parse(cleanString, undefined, {
+			forwardDate: false
+		});
 
 		let datelessText = cleanString;
-		let date = formatDate(new Date());
+		let date = new Date();
 
 		if (parsedTime.length) {
 			const { text, start } = parsedTime[0];
 
 			const startDate = start.date();
-			date = formatDate(startDate);
+			date = startDate;
 
 			datelessText = cleanString.replace(text, '');
 		}
@@ -25,6 +30,7 @@
 		const details = getDetails(datelessText);
 
 		const values = {
+			id: crypto.randomUUID(),
 			...details,
 			date
 		};
@@ -33,7 +39,7 @@
 	}
 
 	function getDetails(text: string) {
-		const pattern = /^(?<flow>[\+|-])(?<value>[\d]+) (?<note>.+)/;
+		const pattern = /^(?<flow>[\+|-]?)(?<value>[\d]+) (?<note>.+)/;
 		const match =
 			pattern.exec(text)?.groups ??
 			({} as {
@@ -42,7 +48,7 @@
 				note?: string;
 			});
 
-		const balance = `${match?.flow ?? '+'}${match.value ?? 0}`;
+		const balance = `${match?.flow || '+'}${match.value ?? 0}`;
 
 		return {
 			balance,
@@ -50,22 +56,16 @@
 		};
 	}
 
-	let parsedEntry: Array<ReturnType<typeof getParsedEntry>> = [];
-
 	function addTransaction(event) {
-		console.log(event.detail);
 		const lines = event.detail.split('\n') as Array<string>;
-		console.log(lines);
 
 		const parsedLines = lines.map((l) => {
 			const parsed = getParsedEntry(l);
-			console.log(parsed);
 			return parsed;
 		});
 
-		console.log(parsedLines);
-
-		parsedEntry = parsedLines;
+		// Add to localStorage
+		entries.update(parsedLines);
 	}
 </script>
 
@@ -87,9 +87,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each parsedEntry as entry}
+				{#each $entries as entry}
 					<tr>
-						<td data-col="date">{entry.date}</td>
+						<td data-col="date">{formatDate(entry.date)}</td>
 						<td data-col="balance">{entry.balance}</td>
 						<td>{entry.note}</td>
 					</tr>

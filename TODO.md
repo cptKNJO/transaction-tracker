@@ -1,6 +1,12 @@
 - [x] Add single line entry
+- [x] Add id to transaction
+- [x] Sort table by date
+- [ ] add an edit mode to show icons -
+  - [ ] Delete by id
+  - [ ] allow editing entries - show a simple form for now
+- [ ] allow deleting multiple items
 - [ ] Add entries where the first line is a date
   - if line doesn't start with + or - and has length after trimming for whitespace
 - [ ] Export as CSV
 - [ ] Make a PWA
-- [ ] Save to local storage
+- [x] Save to local storage

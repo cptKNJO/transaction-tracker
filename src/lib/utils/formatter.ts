@@ -1,14 +1,10 @@
-export function formatDate(date: Date) {
-	const options = {
-		year: 'numeric',
-		month: 'short',
-		day: 'numeric'
-	};
+export function formatDate(date: Date | string) {
+	const cleanDate = typeof date === 'string' ? new Date(date) : date;
 
 	const formatted = new Intl.DateTimeFormat('en-GB', {
 		month: 'short',
 		day: 'numeric'
-	}).format(date);
+	}).format(cleanDate);
 
 	return formatted;
 }
